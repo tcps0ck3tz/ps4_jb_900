@@ -1,0 +1,42 @@
+<html>
+<body>
+<h2>Loading...</h2>
+<div style="opacity: 0">
+<p><i>Italic text</i></p>
+<table>
+<tr>
+<th>H1</th>
+<th>H2</th>
+<th>H3</th>
+</tr>
+<tr>
+<td>text</td>
+<td><input value="text"/></td>
+<td><button>text</button></td>
+</tr>
+</table>
+</div>
+<script>
+function loadScript(path)
+{
+    var xhr = new XMLHttpRequest(path);
+    xhr.open("GET", path, false);
+    xhr.send('');
+    return xhr.responseText;
+}
+
+setTimeout(function(){
+eval.call(window, loadScript('netcat.js')
++loadScript('system/exploit.js')
++loadScript('system/malloc.js')
++loadScript('system/ropb2.js')
++loadScript('system/syscalls.js')
++loadScript('system/syscalls2.js')
++loadScript('system/payload.js')
++loadScript('system/relocator.js')
++loadScript('payloads/frontend.js'));
+document.getElementById('q').innerHTML = 'Some other text';
+}, 50);
+</script>
+</body>
+</html>
